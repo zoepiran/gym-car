@@ -19,7 +19,7 @@ class CarEnv(gym.Env):
   RIGHT = 2
 
   def __init__(self, grid_size=10):
-    super(ParabolicCar, self).__init__()
+    super(CarEnv, self).__init__()
 
     self.min_position = -2.4
     self.max_position = 0.6
