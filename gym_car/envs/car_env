@@ -5,9 +5,7 @@ from gym import spaces
 from gym.utils import seeding
 
 
-
-
-class ParabolicCar(gym.Env):
+class CarEnv(gym.Env):
   """
   Custom Environment that follows gym interface.
   This is a variant of mountain car with parabolic hilly landscape and 
