@@ -71,7 +71,7 @@ class CarEnv(gym.Env):
     assert self.action_space.contains(action), "%r (%s) invalid" % (action, type(action))
     
     position, velocity = self.state
-    velocity += (action-1)*self.force + math.cos(3*position)*(-self.gravity)
+    velocity += (action-1)*self.force + (self.h*position)*(-self.gravity)/math.sqrt((self.h*position)**2 + 1) - self.gamma*velocity
     velocity = np.clip(velocity, -self.max_speed, self.max_speed)
     position += velocity
     position = np.clip(position, self.min_position, self.max_position)
