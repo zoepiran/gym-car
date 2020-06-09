@@ -21,14 +21,14 @@ class CarEnv(gym.Env):
   def __init__(self, grid_size=10):
     super(CarEnv, self).__init__()
 
-    self.min_position = -2.4
-    self.max_position = 0.6
+    self.min_position = -3.6
+    self.max_position = 1.2
     self.max_speed = 0.07
-    self.goal_position = 0.5
+    self.goal_position = 1
     self.goal_velocity = 0
     
-    self.h = 8
-    self.gamma = 0.01
+    self.h = 1
+    self.gamma = 0.1
     self.force = 0.001
     self.gravity = 0.0025
 
@@ -52,7 +52,7 @@ class CarEnv(gym.Env):
     Important: the observation must be a numpy array
     :return: (np.array) 
     """
-    self.state = np.array([self.np_random.uniform(low=-0.6, high=-0.4), 0])
+    self.state = np.array([self.np_random.uniform(low=-0.1, high=-0.1), 0])
     return np.array(self.state)
     
   def _height(self, xs):
