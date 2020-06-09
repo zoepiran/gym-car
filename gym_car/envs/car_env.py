@@ -28,7 +28,7 @@ class CarEnv(gym.Env):
     self.goal_velocity = 0
     
     self.h = 1
-    self.gamma = 0.1
+    self.gamma = 0.01
     self.force = 0.001
     self.gravity = 0.0025
 
