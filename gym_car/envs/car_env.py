@@ -29,7 +29,7 @@ class CarEnv(gym.Env):
     
     self.h = .5
     self.gamma = 0.01
-    self.force = 0.001
+    self.force = 0.01
     self.gravity = 0.0025
 
     self.low = np.array([self.min_position, -self.max_speed], dtype=np.float32)
