@@ -21,15 +21,15 @@ class CarEnv(gym.Env):
   def __init__(self, grid_size=10):
     super(CarEnv, self).__init__()
 
-    self.min_position = -3.6
-    self.max_position = 0.8
+    self.min_position = -4
+    self.max_position = 1
     self.max_speed = 0.08
-    self.goal_position = 0.6
+    self.goal_position = 0.8
     self.goal_velocity = 0
     
-    self.h = .5
+    self.h = .8
     self.gamma = 0.01
-    self.force = 0.01
+    self.force = 0.005
     self.gravity = 0.0025
 
     self.low = np.array([self.min_position, -self.max_speed], dtype=np.float32)
@@ -56,14 +56,14 @@ class CarEnv(gym.Env):
     return np.array(self.state)
     
   def _height(self, xs):
-    return 1/2*self.h*x^2
+    return 1/2*self.h*xs^2
   
   def state_step(self, position, velocity, action):
 #     assert self.action_space.contains(action), "%r (%s) invalid" % (action, type(action))
   
-    velocity = velocity + (action-1)*self.force + (self.h*position)*(-self.gravity)/np.sqrt((self.h*position)**2 + 1) - self.gamma*velocity
+    velocity += (action-1)*self.force + (self.h*position)*(-self.gravity)/np.sqrt((self.h*position)**2 + 1) - self.gamma*velocity
     velocity = np.clip(velocity, -self.max_speed, self.max_speed)
-    position = position + velocity
+    position += velocity
     position = np.clip(position, self.min_position, self.max_position)
     
     return position, velocity
