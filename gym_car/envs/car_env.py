@@ -27,9 +27,9 @@ class CarEnv(gym.Env):
     self.goal_position = 0.8
     self.goal_velocity = 0
     
-    self.h = .8
+    self.h = .6
     self.gamma = 0.01
-    self.force = 0.005
+    self.force = 0.002
     self.gravity = 0.0025
 
     self.low = np.array([self.min_position, -self.max_speed], dtype=np.float32)
