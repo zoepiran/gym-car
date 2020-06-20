@@ -21,13 +21,13 @@ class CarEnv(gym.Env):
   def __init__(self, grid_size=10):
     super(CarEnv, self).__init__()
 
-    self.min_position = -2.4
-    self.max_position = 1
-    self.max_speed = 0.04
-    self.goal_position = .8
+    self.min_position = -1.2
+    self.max_position = .8
+    self.max_speed = 0.06
+    self.goal_position = .6
     self.goal_velocity = 0
     
-    self.h = .5
+    self.h = 1
     self.gamma = 0.01
     self.force = 0.001
     self.gravity = 0.0025
