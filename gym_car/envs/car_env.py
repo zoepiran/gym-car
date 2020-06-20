@@ -21,10 +21,10 @@ class CarEnv(gym.Env):
   def __init__(self, grid_size=10):
     super(CarEnv, self).__init__()
 
-    self.min_position = -4
-    self.max_position = 1.2
+    self.min_position = -2.4
+    self.max_position = 1
     self.max_speed = 0.08
-    self.goal_position = 1
+    self.goal_position = .8
     self.goal_velocity = 0
     
     self.h = 1
